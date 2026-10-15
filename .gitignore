@@ -1,0 +1,22 @@
+# Secrets and local settings
+config.mail.php
+db_connect.php
+.env
+
+# Third-party libraries (reinstall with: composer install)
+vendor/
+
+# Uploaded files and logs
+uploads/*
+!uploads/.gitkeep
+*.log
+
+# Real data / backups (keep only sample data in the repo)
+*.sql.bak
+backup*/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

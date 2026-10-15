@@ -1,0 +1,402 @@
+/* =========================================================
+   UniTrade Landing Page
+   Clean Figma-inspired layout
+   ========================================================= */
+
+/* ---------- Hero navigation ---------- */
+
+.hero-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px clamp(22px, 6vw, 90px);
+}
+
+.hero-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    line-height: 1;
+
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.hero-logo:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.hero-logo svg {
+    width: clamp(58px, 7vw, 86px);
+    height: clamp(58px, 7vw, 86px);
+    flex-shrink: 0;
+
+    color: #ffffff;
+    filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.35));
+}
+
+/* Hide navigation links if they are added later */
+.hero-nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.hero-nav-links a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.hero-nav-links a:hover {
+    background: rgba(255, 255, 255, 0.14);
+    text-decoration: none;
+}
+
+/* ---------- Hero section ---------- */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+    background: #9eabb8;
+}
+
+/* Background image layer */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image 1.2s ease-in-out;
+}
+
+/* Soft overlay so white text remains visible */
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(11, 27, 51, 0.48) 0%,
+            rgba(11, 27, 51, 0.25) 48%,
+            rgba(11, 27, 51, 0.08) 100%
+        );
+}
+
+/* ---------- Hero text area ---------- */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 125px clamp(24px, 9vw, 130px) 180px;
+
+    color: #ffffff;
+}
+
+/* Buy · Sell · Connect */
+.hero-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    margin: 0 0 48px;
+
+    color: #ffffff;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.hero-tagline .sep {
+    opacity: 0.8;
+}
+
+/* Main marketplace heading */
+.hero-content h1 {
+    max-width: 570px;
+
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(36px, 5.3vw, 64px);
+    font-weight: 850;
+    line-height: 1.08;
+    letter-spacing: -1.8px;
+    text-align: left;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.7),
+        0 6px 20px rgba(0, 0, 0, 0.38);
+}
+
+/* ---------- Get Started button ---------- */
+
+.hero-cta {
+    position: absolute;
+    left: 50%;
+    bottom: 92px;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(420px, calc(100% - 48px));
+    min-height: 58px;
+
+    margin: 0;
+    padding: 16px 62px 16px 28px;
+
+    transform: translateX(-50%);
+
+    color: #ffffff;
+    background: var(--brand, #2f8fa8);
+
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(36, 116, 137, 0.32);
+
+    font-size: 19px;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hero-cta:hover {
+    color: #ffffff;
+    background: var(--brand-dark, #247489);
+    text-decoration: none;
+
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 12px 28px rgba(36, 116, 137, 0.4);
+}
+
+/* Arrow stays near the right edge */
+.hero-cta svg {
+    position: absolute;
+    right: 22px;
+
+    width: 25px;
+    height: 25px;
+}
+
+/* ---------- Carousel dots ---------- */
+
+.hero-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 34px;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transform: translateX(-50%);
+}
+
+.hero-dots button {
+    width: 13px;
+    height: 13px;
+
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+
+    transition:
+        width 0.2s ease,
+        background 0.2s ease;
+}
+
+.hero-dots button:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.hero-dots button.active {
+    width: 30px;
+    background: #ffffff;
+}
+
+/* ---------- Section below hero ---------- */
+
+.landing-section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 78px 24px;
+}
+
+.landing-section h2 {
+    margin: 0 0 9px;
+
+    color: var(--text);
+    font-size: 28px;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+}
+
+.landing-section > p.lead {
+    max-width: 540px;
+
+    margin: 0 0 38px;
+
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.landing-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.landing-step {
+    padding: 23px;
+
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.landing-step .num {
+    margin-bottom: 10px;
+
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.landing-step h3 {
+    margin: 0 0 7px;
+
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.landing-step p {
+    margin: 0;
+
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ---------- Responsive design ---------- */
+
+@media (max-width: 700px) {
+    .hero-nav {
+        padding: 22px 20px;
+    }
+
+    .hero-logo {
+        gap: 10px;
+        font-size: 37px;
+        letter-spacing: -1.5px;
+    }
+
+    .hero-logo svg {
+        width: 54px;
+        height: 54px;
+    }
+
+    .hero-nav-links a:not(.solid) {
+        display: none;
+    }
+
+    .hero-content {
+        padding: 125px 24px 180px;
+    }
+
+    .hero-tagline {
+        gap: 10px;
+        margin-bottom: 38px;
+        font-size: 23px;
+    }
+
+    .hero-content h1 {
+        max-width: 350px;
+
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: -1.2px;
+    }
+
+    .hero-cta {
+        bottom: 82px;
+
+        width: calc(100% - 48px);
+        min-height: 55px;
+
+        font-size: 17px;
+    }
+
+    .hero-dots {
+        bottom: 29px;
+    }
+
+    .landing-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-logo {
+        font-size: 32px;
+    }
+
+    .hero-logo svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .hero-tagline {
+        font-size: 21px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+}
